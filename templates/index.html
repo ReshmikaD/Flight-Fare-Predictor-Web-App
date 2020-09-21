@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+  <meta charset="UTF-8">
+  <title>Flight Fare Predictor</title>
+
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+        <script src="https://kit.fontawesome.com/5f3f547070.js" crossorigin="anonymous"></script>
+	  
+<link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+
+		
+<style>
+.column {
+  float: left;
+  width: 50%;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+	
+div.background {
+  background: url(klematis.jpg) repeat;
+  border: 0px solid black;
+}
+
+div.transbox {
+  margin: 30px;
+  background-color: #ffffff;
+  border: 1px solid black;
+  opacity: 0.6;
+}
+
+div.transbox p {
+  margin: 5%;
+  font-weight: bold;
+  color: #000000;
+}
+</style>
+
+ <style>
+
+body {
+  background-image: url('/static/images/flightmain.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed; 
+  background-size: 100% 100%;
+}
+</style>
+
+</head>
+
+<body>
+
+	<style>
+	div {text-align: center;}
+	</style>
+
+ <div class="login">
+	<div class="background">
+	<div class="transbox">
+	<h1>Flight Ticket Fare Predictor</h1>
+	<h3>A Machine Learning Web App to Predict your Flight Ticket Prices.</h3>
+	</div>
+	</div>
+
+        <form action="\predict" method="post">
+					
+			<div class="background">
+			<div class="transbox">
+            <div class="row">
+			<div class="column">
+			<br>
+                            <h3 class="card-title">Date of Departure</h3>
+                            <!-- Departure -->
+                            <input type="datetime-local" name="Dep_Time" id="Dep_Time" required="required">
+			</div>
+			<div class="column">
+                <br>
+                            <h3 class="card-title">Date of Arrival </h3>
+                            <!-- Arrival -->
+                            <input type="datetime-local" name="Arrival_Time" id="Arrival_Time" required="required">
+        
+            </div>
+			</div>
+
+            <br>
+ 
+
+            <div class="row">
+				<div class="column">
+                            <!-- Source -->
+                            <h3 class="card-title">Place of Departure </h3>
+                            <select name="Source" id="Source" required="required">
+                                <option value="Delhi">Delhi</option>
+                                <option value="Kolkata">Kolkata</option>
+                                <option value="Mumbai">Mumbai</option>
+                                <option value="Chennai">Chennai</option>
+                            </select>
+				</div>
+				<div class="column">
+                            <h3 class="card-title">Destination</h3>
+                            <!-- Destination -->
+                            <select name="Destination" id="Destination" required="required">
+								<option value="Chennai">Chennai</option>
+                                <option value="Cochin">Cochin</option>
+                                <option value="Delhi">Delhi</option>
+                                <option value="Hyderabad">Hyderabad</option>
+                                <option value="Kolkata">Kolkata</option>
+                            </select>
+                </div>    
+            </div>
+
+
+
+            <br>
+
+			
+            <div class="row">
+				<div class="column">
+                            <h3 class="card-title">Stopage Count</h3>
+                            <!-- Total Stops -->
+                            <select name="stops" required="required">
+                                <option value="0">Non-Stop</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                            </select>
+				</div>
+				<div class="column">
+				
+                            <h3 class="card-title">Airline</h3>
+                            <!-- Airline -->
+                            <select name="airline" id="airline" required="required">
+
+                                <option value="IndiGo">IndiGo</option>
+								<option value="Jet Airways">Jet Airways</option>
+                                <option value="Air India">Air India</option>
+                                <option value="Multiple carriers">Multiple carriers</option>
+                                <option value="SpiceJet">SpiceJet</option>
+                                <option value="Vistara">Vistara</option>
+                                <option value="Air Asia">Air Asia</option>
+                                <option value="GoAir">GoAir</option>
+                                <option value="Multiple carriers Premium economy">Multiple carriers Premium economy
+                                </option>
+                                <option value="Jet Airways Business">Jet Airways Business</option>
+                                <option value="Vistara Premium economy">Vistara Premium economy</option>
+                                <option value="Trujet">Trujet</option>
+                            </select>
+                   
+            </div>
+			</div>
+				<br>
+			    </div>
+				</div>
+            <input type="submit" value="Submit" class="btn btn-secondary" >
+			
+        </form>
+
+        <h3>{{ prediction_text }}<h3>
+
+
+        <br>
+        <br>
+       <div class='footer'>
+           <div class="contact">
+               <a target="_blank" href="https://github.com/ReshmikaD/Flight-Fare-Predictor-web-app"><i class="fab fa-github fa-lg contact-icon"></i></a>
+               <a target="_blank" href="https://www.linkedin.com/in/reshmika-dhandapani"><i class="fab fa-linkedin fa-lg contact-icon"></i></a>
+			   
+           </div>
+           <p class='footer-description'>Created by Reshmika D.</p>
+       </div>
+	</div>
+
+</html>
+
+
+</body>
+</html>
