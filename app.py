@@ -1,16 +1,23 @@
 from flask import Flask, request, render_template
 import pickle
 import pandas as pd
+import sklearn
+from flask_cors import cross_origin
 
 app = Flask(__name__)
 model = pickle.load(open('flight_model.pkl', 'rb'))
 
 @app.route('/')
+@cross_origin()
 def home():
     return render_template('index.html')
 
-@app.route('/predict',methods=['POST'])
+@app.route("/predict", methods = ["GET", "POST"])
+@cross_origin()
 def predict():
+    
+    if request.method == "POST":
+            
         date_dep = request.form["Dep_Time"]
         Journey_day = int(pd.to_datetime(date_dep, format="%Y-%m-%dT%H:%M").day)
         Journey_month = int(pd.to_datetime(date_dep, format ="%Y-%m-%dT%H:%M").month)
@@ -21,6 +28,7 @@ def predict():
         date_arr = request.form["Arrival_Time"]
         Arrival_hour = int(pd.to_datetime(date_arr, format ="%Y-%m-%dT%H:%M").hour)
         Arrival_min = int(pd.to_datetime(date_arr, format ="%Y-%m-%dT%H:%M").minute)
+        
         dur_hour = abs(Arrival_hour - Dep_hour)
         dur_min = abs(Arrival_min - Dep_min)
         
