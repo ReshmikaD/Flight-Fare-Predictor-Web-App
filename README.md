@@ -5,7 +5,7 @@ Web App: https://flight-fare-api.herokuapp.com
 
 # Introduction
 
-This is a machine learning project based Flask Web app that predicts the flight ticket fares for a customer.
+This is a machine learning  based Flask Web app that predicts the flight ticket fares for a customer.
 
 # Demo
 
